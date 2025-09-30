@@ -1,12 +1,18 @@
-# Use official Java 17 JDK image
+# Use official OpenJDK 17 image
 FROM eclipse-temurin:17-jdk-alpine
 
+# Set work directory
 WORKDIR /app
 
+# Copy the built JAR into the container
 COPY target/*.jar app.jar
 
-# Expose any port (optional)
-EXPOSE 8081
+# Expose the port your service runs on
+EXPOSE 8081 
 
-# Use Render's PORT environment variable
-ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=$PORT"]
+# Environment variables for Spring Boot
+ENV JAVA_OPTS=""
+ENV SPRING_PROFILES_ACTIVE=prod
+
+# Run the JAR
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
