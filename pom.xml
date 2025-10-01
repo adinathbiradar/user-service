@@ -94,8 +94,9 @@
         <dependency>
     <groupId>org.postgresql</groupId>
     <artifactId>postgresql</artifactId>
-    <scope>runtime</scope>
+    <version>42.7.4</version> <!-- use the latest stable -->
 </dependency>
+
 
         <!-- Lombok -->
         <dependency>
