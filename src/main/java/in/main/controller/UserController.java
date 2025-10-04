@@ -12,8 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/users")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/users")
+@CrossOrigin(origins = {
+	    "http://localhost:4200",
+	    "https://hotelbookingbyadinath.netlify.app"
+	})
 public class UserController {
 
     private final UserService service;
